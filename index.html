@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAN: Mental Adjusted Now | Reentry, Workforce & Tech Literacy</title>
+  <meta name="description" content="MAN: Mental Adjusted Now helps African American men transition back into society after incarceration through job readiness, tech literacy, interview prep, resume writing, and job placement support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f2338;
+      --navy-2: #172f49;
+      --gold: #c99a3a;
+      --gold-light: #f4d996;
+      --cream: #f8f5ef;
+      --white: #ffffff;
+      --ink: #1f2937;
+      --muted: #667085;
+      --line: #e5e7eb;
+      --success: #1f7a4d;
+      --shadow: 0 18px 45px rgba(15, 35, 56, 0.14);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .top-bar {
+      background: var(--navy);
+      color: rgba(255,255,255,.88);
+      font-size: 0.88rem;
+      padding: 10px 5%;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      letter-spacing: .01em;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248,245,239,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(15,35,56,.1);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -.03em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: var(--gold-light);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(15,35,56,.25);
+    }
+
+    .brand small {
+      display: block;
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--navy);
+      font-size: .95rem;
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--gold);
+      color: #211704;
+      box-shadow: 0 12px 24px rgba(201,154,58,.25);
+    }
+    .btn-primary:hover { background: #d8aa4e; }
+    .btn-secondary {
+      background: var(--white);
+      color: var(--navy);
+      border: 1px solid rgba(15,35,56,.12);
+    }
+
+    .hero {
+      background:
+        linear-gradient(120deg, rgba(15,35,56,.94), rgba(15,35,56,.82)),
+        url('clay1.jpg') center/cover no-repeat;
+      color: white;
+      padding: 96px 5% 72px;
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 800;
+      font-size: .78rem;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: .98;
+      letter-spacing: -.065em;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      font-size: 1.13rem;
+      color: rgba(255,255,255,.84);
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    .hero-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius);
+      padding: 28px;
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 { font-size: 1.3rem; margin-bottom: 16px; }
+    .hero-card .stat {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 14px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+    .hero-card .stat:first-of-type { border-top: none; }
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: rgba(244,217,150,.16);
+      display: grid;
+      place-items: center;
+      color: var(--gold-light);
+      font-size: 1.4rem;
+    }
+    .stat strong { display: block; color: white; }
+    .stat span { color: rgba(255,255,255,.74); font-size: .93rem; }
+
+    section { padding: 82px 5%; }
+    .container { max-width: 1180px; margin: 0 auto; }
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+    .section-head.center { text-align: center; margin: 0 auto 40px; }
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      color: var(--navy);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+      margin-bottom: 14px;
+    }
+    .section-head p { color: var(--muted); font-size: 1.05rem; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .photo-card {
+      min-height: 440px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(15,35,56,.05), rgba(15,35,56,.35)),
+        url('adelou.jpg') center/cover no-repeat;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .photo-label {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      background: rgba(255,255,255,.92);
+      border-radius: 18px;
+      padding: 16px 18px;
+      color: var(--navy);
+      font-weight: 800;
+      max-width: 310px;
+    }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px;
+      box-shadow: 0 12px 35px rgba(15,35,56,.08);
+    }
+
+    .check-list { list-style: none; display: grid; gap: 14px; margin-top: 20px; }
+    .check-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      color: #344054;
+    }
+    .check-list li::before {
+      content: '✓';
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(31,122,77,.12);
+      color: var(--success);
+      font-weight: 900;
+      font-size: .9rem;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .program-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 10px 28px rgba(15,35,56,.07);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .program-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .program-card h3 { color: var(--navy); margin: 18px 0 10px; font-size: 1.22rem; }
+    .program-card p { color: var(--muted); }
+
+    .impact {
+      background: var(--navy);
+      color: white;
+    }
+    .impact .section-head h2 { color: white; }
+    .impact .section-head p { color: rgba(255,255,255,.75); }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .impact-box {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      padding: 26px;
+    }
+    .impact-box strong {
+      display: block;
+      font-size: 2.15rem;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .impact-box span { color: rgba(255,255,255,.78); }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      counter-reset: step;
+    }
+    .step-card {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .step-card::before {
+      counter-increment: step;
+      content: '0' counter(step);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: var(--navy);
+      color: var(--gold-light);
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .step-card h3 { color: var(--navy); margin-bottom: 8px; }
+    .step-card p { color: var(--muted); font-size: .95rem; }
+
+    .cta {
+      background: linear-gradient(135deg, var(--navy), #233c59);
+      color: white;
+      border-radius: 32px;
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 30px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    .cta h2 { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -.045em; margin-bottom: 12px; }
+    .cta p { color: rgba(255,255,255,.76); }
+    .cta-actions { display: flex; justify-content: flex-end; gap: 12px; flex-wrap: wrap; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+    }
+    .contact-card, form {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: 0 10px 28px rgba(15,35,56,.07);
+    }
+    .contact-card h3, form h3 { color: var(--navy); margin-bottom: 12px; font-size: 1.35rem; }
+    .contact-card p { color: var(--muted); margin-bottom: 18px; }
+    .contact-row { padding: 16px 0; border-top: 1px solid var(--line); }
+    .contact-row strong { display: block; color: var(--navy); }
+    .contact-row span { color: var(--muted); }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label { display: block; font-weight: 700; color: var(--navy); font-size: .9rem; margin-bottom: 7px; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #d0d5dd;
+      border-radius: 14px;
+      padding: 13px 14px;
+      font: inherit;
+      background: #fff;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201,154,58,.14); }
+    textarea { min-height: 130px; resize: vertical; }
+    .full { grid-column: 1 / -1; }
+
+    footer {
+      background: #081827;
+      color: rgba(255,255,255,.76);
+      padding: 38px 5%;
+    }
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    footer strong { color: white; }
+
+    .mobile-menu-btn { display: none; }
+
+    @media (max-width: 920px) {
+      .mobile-menu-btn {
+        display: inline-flex;
+        border: 1px solid rgba(15,35,56,.12);
+        background: white;
+        border-radius: 12px;
+        padding: 10px 12px;
+        font-weight: 800;
+        color: var(--navy);
+      }
+      nav ul {
+        position: absolute;
+        left: 5%;
+        right: 5%;
+        top: 86px;
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 18px;
+        flex-direction: column;
+        align-items: stretch;
+        box-shadow: var(--shadow);
+        display: none;
+      }
+      nav ul.open { display: flex; }
+      .hero-inner, .about-grid, .contact-grid, .cta { grid-template-columns: 1fr; }
+      .hero { padding-top: 74px; }
+      .program-grid, .impact-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-actions { justify-content: flex-start; }
+    }
+
+    @media (max-width: 620px) {
+      .brand div:last-child { font-size: .9rem; }
+      .brand small { font-size: .62rem; }
+      section { padding: 64px 5%; }
+      .hero { padding: 64px 5%; }
+      .program-grid, .impact-grid, .process-grid, .form-grid { grid-template-columns: 1fr; }
+      .full { grid-column: auto; }
+      .info-card, .hero-card, .contact-card, form, .cta { padding: 24px; }
+      .photo-card { min-height: 330px; }
+      .hero-actions .btn, .cta-actions .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">MAN: Mental Adjusted Now — Restoring confidence, opportunity, and career readiness for returning citizens.</div>
+
+  <header>
+    <div class="nav">
+      <a href="#home" class="brand" aria-label="MAN Mental Adjusted Now Home">
+        <div class="brand-mark">MAN</div>
+        <div>
+          Mental Adjusted Now
+          <small>Reentry • Jobs • Tech Literacy</small>
+        </div>
+      </a>
+      <nav>
+        <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle navigation">Menu</button>
+        <ul id="navMenu">
+          <li><a href="#about">Mission</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#process">Pathway</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="btn btn-primary" href="#contact">Get Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Reentry support with dignity and structure</div>
+          <h1>Helping men rebuild, prepare, and move forward.</h1>
+          <p>
+            MAN: Mental Adjusted Now is a nonprofit dedicated to helping African American men transition back into society after incarceration through job readiness, technology literacy, interview preparation, resume writing, mentorship, and job placement support.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#programs">View Our Services</a>
+            <a class="btn btn-secondary" href="#contact">Partner With Us</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Program highlights">
+          <h3>Our Core Focus</h3>
+          <div class="stat">
+            <div class="icon">💼</div>
+            <div><strong>Career Readiness</strong><span>Resume support, interview coaching, job search planning, and professional development.</span></div>
+          </div>
+          <div class="stat">
+            <div class="icon">💻</div>
+            <div><strong>Tech Literacy</strong><span>Computer basics, email setup, phone navigation, online forms, and digital safety.</span></div>
+          </div>
+          <div class="stat">
+            <div class="icon">🤝</div>
+            <div><strong>Placement Support</strong><span>Employer connections, career referrals, and accountability after placement.</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="photo-card">
+          <div class="photo-label">Building a stronger path home through preparation, opportunity, and community.</div>
+        </div>
+        <div class="info-card">
+          <div class="eyebrow">Our Mission</div>
+          <h2 style="color:var(--navy);font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.08;letter-spacing:-.04em;margin-bottom:16px;">We help returning citizens become prepared, confident, and career-ready.</h2>
+          <p style="color:var(--muted);">
+            Reentry is more than returning home. It requires structure, emotional readiness, digital access, employment preparation, and trusted support. MAN provides practical services that help men build professional skills, navigate modern technology, and take the next step toward stability.
+          </p>
+          <ul class="check-list">
+            <li>Supportive programming designed for African American men returning from incarceration.</li>
+            <li>Hands-on training for email, smartphones, computers, online applications, and digital communication.</li>
+            <li>Professional development through resumes, mock interviews, career planning, and job placement assistance.</li>
+            <li>Partnership opportunities with employers, workforce agencies, schools, faith organizations, and community leaders.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="programs" style="background:#fff;">
+      <div class="container">
+        <div class="section-head center">
+          <div class="eyebrow">Programs & Services</div>
+          <h2>Practical support for life after incarceration.</h2>
+          <p>Each service is built to help participants gain confidence, improve communication, and move toward employment with measurable progress.</p>
+        </div>
+
+        <div class="program-grid">
+          <article class="program-card">
+            <div class="icon">🧭</div>
+            <h3>Reentry Readiness</h3>
+            <p>Goal planning, accountability check-ins, workplace expectations, and personal development sessions that help men transition with structure.</p>
+          </article>
+          <article class="program-card">
+            <div class="icon">📧</div>
+            <h3>Digital & Tech Literacy</h3>
+            <p>Training in email, smartphones, computer basics, online job applications, video interviews, document uploads, and safe internet use.</p>
+          </article>
+          <article class="program-card">
+            <div class="icon">📝</div>
+            <h3>Resume Writing</h3>
+            <p>Professional resumes, job history organization, skills translation, cover letter basics, and digital resume storage for easy applications.</p>
+          </article>
+          <article class="program-card">
+            <div class="icon">🎙️</div>
+            <h3>Interview Preparation</h3>
+            <p>Mock interviews, confidence building, communication practice, attire guidance, workplace etiquette, and answering difficult background questions.</p>
+          </article>
+          <article class="program-card">
+            <div class="icon">🏢</div>
+            <h3>Job Placement</h3>
+            <p>Support connecting participants to employment opportunities, workforce partners, apprenticeship pathways, and second-chance employers.</p>
+          </article>
+          <article class="program-card">
+            <div class="icon">📈</div>
+            <h3>Career Growth</h3>
+            <p>Ongoing support after placement including retention coaching, basic financial habits, digital professionalism, and growth planning.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact">
+      <div class="container">
+        <div class="section-head center">
+          <div class="eyebrow">Community Impact</div>
+          <h2>Designed to reduce barriers and increase opportunity.</h2>
+          <p>MAN focuses on the daily skills and professional preparation needed to help men reenter society with confidence.</p>
+        </div>
+        <div class="impact-grid">
+          <div class="impact-box"><strong>1:1</strong><span>Coaching and guided support.</span></div>
+          <div class="impact-box"><strong>Tech</strong><span>Modern digital skills for work and life.</span></div>
+          <div class="impact-box"><strong>Jobs</strong><span>Employment readiness and placement.</span></div>
+          <div class="impact-box"><strong>Trust</strong><span>A dignity-first reentry approach.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head center">
+          <div class="eyebrow">Participant Pathway</div>
+          <h2>A clear process from intake to employment support.</h2>
+          <p>Our pathway is simple, structured, and focused on progress.</p>
+        </div>
+        <div class="process-grid">
+          <article class="step-card">
+            <h3>Intake</h3>
+            <p>We learn each participant’s background, goals, barriers, documents, technology access, and job interests.</p>
+          </article>
+          <article class="step-card">
+            <h3>Training</h3>
+            <p>Participants complete core sessions in technology basics, career preparation, communication, and workplace readiness.</p>
+          </article>
+          <article class="step-card">
+            <h3>Preparation</h3>
+            <p>We build resumes, practice interviews, organize job applications, and prepare participants for employer conversations.</p>
+          </article>
+          <article class="step-card">
+            <h3>Placement</h3>
+            <p>Participants receive job search support, referrals, partner connections, and continued coaching after placement.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container cta">
+        <div>
+          <h2>Support the mission. Help men rebuild their future.</h2>
+          <p>We welcome partnerships with employers, workforce development organizations, nonprofits, schools, churches, mentors, and community advocates.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="#contact">Become a Partner</a>
+          <a class="btn btn-secondary" href="#contact">Refer Someone</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="background:#fff;">
+      <div class="container">
+        <div class="section-head center">
+          <div class="eyebrow">Contact MAN</div>
+          <h2>Start the conversation.</h2>
+          <p>Reach out for participant referrals, partnership opportunities, volunteer interest, or employer collaboration.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Organization Contact</h3>
+            <p>Update this area with your nonprofit’s official contact details once available.</p>
+            <div class="contact-row"><strong>Email</strong><span>info@mentaladjustednow.org</span></div>
+            <div class="contact-row"><strong>Phone</strong><span>(000) 000-0000</span></div>
+            <div class="contact-row"><strong>Location</strong><span>Serving returning citizens and community partners.</span></div>
+            <div class="contact-row"><strong>Services</strong><span>Reentry support, tech literacy, job readiness, resume writing, interview prep, and job placement.</span></div>
+          </div>
+
+          <form action="mailto:info@mentaladjustednow.org" method="post" enctype="text/plain">
+            <h3>Send a Message</h3>
+            <div class="form-grid">
+              <div>
+                <label for="name">Full Name</label>
+                <input id="name" name="Full Name" type="text" placeholder="Your name" required>
+              </div>
+              <div>
+                <label for="email">Email Address</label>
+                <input id="email" name="Email" type="email" placeholder="you@example.com" required>
+              </div>
+              <div>
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="Phone" type="tel" placeholder="(000) 000-0000">
+              </div>
+              <div>
+                <label for="interest">I am interested in</label>
+                <select id="interest" name="Interest">
+                  <option>Participant Support</option>
+                  <option>Employer Partnership</option>
+                  <option>Volunteer / Mentor</option>
+                  <option>Donation / Sponsorship</option>
+                  <option>General Information</option>
+                </select>
+              </div>
+              <div class="full">
+                <label for="message">Message</label>
+                <textarea id="message" name="Message" placeholder="Tell us how we can help."></textarea>
+              </div>
+              <div class="full">
+                <button class="btn btn-primary" type="submit">Submit Inquiry</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div><strong>MAN: Mental Adjusted Now</strong><br>Reentry • Workforce Readiness • Tech Literacy</div>
+      <div>© 2026 MAN: Mental Adjusted Now. All rights reserved. | Powered by: RoboTechi Co.</div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    menuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navMenu.classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
